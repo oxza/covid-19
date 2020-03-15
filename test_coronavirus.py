@@ -1,7 +1,9 @@
 import os, time, msvcrt
+
 coronavirus = 0
 gripe = 0
 resfriado = 0
+
 os.system("cls")
 print("Te formularé varias preguntas. Debes responderlas con total sinceridad.")
 time.sleep(3)
@@ -18,6 +20,7 @@ time.sleep(2)
 print("Presiona cualquier tecla para comenzar el test!")
 msvcrt.getch()
 os.system("cls")
+
 print("¿Tienes fiebre?")
 fiebre = input("Introduce tu respuesta: ")
 if fiebre == "Y":
@@ -30,6 +33,7 @@ elif fiebre == "N":
 else:
     pass
 os.system("cls")
+
 print("¿Tienes tos?")
 tos = input("Introduce tu respuesta: ")
 if tos == "Y":
@@ -43,6 +47,7 @@ elif tos == "N":
 else:
     pass
 os.system("cls")
+
 print("¿Tienes mocos?")
 mocos = input("Introduce tu respuesta: ")
 if mocos == "Y":
@@ -56,6 +61,7 @@ elif mocos == "N":
 else:
     pass
 os.system("cls")
+
 print("¿Tienes congestión nasal?")
 c_nasal = input("Introduce tu respuesta: ")
 if c_nasal == "Y":
@@ -69,6 +75,7 @@ elif c_nasal == "N":
 else:
     pass
 os.system("cls")
+
 print("¿Sueles estornudar?")
 est = input("Introduce tu respuesta: ")
 if est == "Y":
@@ -81,6 +88,7 @@ elif est == "N":
 else:
     pass
 os.system("cls")
+
 print("¿Te duele o sientes un malestar en la garganta?")
 grg = input("Introduce tu respuesta: ")
 if grg == "Y":
@@ -88,6 +96,7 @@ if grg == "Y":
 else:
     pass
 os.system("cls")
+
 print("¿Tienes dificultad al respirar?")
 no_respirar = input("Introduce tu respuesta: ")
 if no_respirar == "Y":
@@ -99,6 +108,7 @@ elif no_respirar == "N":
 else:
     pass
 os.system("cls")
+
 print("¿Tienes flema?")
 flema = input("Introduce tu respuesta: ")
 if flema == "Y":
@@ -122,6 +132,7 @@ if flema == "Y":
 else:
     pass
 os.system("cls")
+
 print("¿Has vomitado o sentido ganas de vomitar?")
 vm = input("Introduce tu respuesta: ")
 if vm == "Y":
@@ -133,6 +144,7 @@ elif vm == "N":
 else:
     pass
 os.system("cls")
+
 print("¿Tienes diarrea?")
 drr = input("Introduce tu respuesta: ")
 if drr == "Y":
@@ -144,6 +156,7 @@ elif drr == "N":
 else:
     pass
 os.system("cls")
+
 print("¿Te sientes mental o físicamente más cansado de lo habitual?")
 cn = input("Introduce tu respuesta: ")
 if cn == "Y":
@@ -155,9 +168,11 @@ elif cn == "N":
     resfriado = float(resfriado) - 0.5
 else:
     pass
+
 coronavirus = float(coronavirus)
 gripe = float(gripe)
 resfriado = float(resfriado)
+
 os.system("cls")
 print("Cargando los resultados (\)")
 time.sleep(1)
@@ -177,6 +192,7 @@ os.system("cls")
 print("Cargando los resultados (/)")
 time.sleep(2)
 os.system("cls")
+
 print("Atención: el diagnóstico puede no ser fiable. El mejor diagnóstico siempre es el de un profesional.")
 time.sleep(4)
 print("\nSi tienes una tos constante y/o dificultad para respirar QUÉDATE EN CASA. No es peligroso para gente joven,\npero puedes salvar muchas vidas de gente anciana o con problemas de salud, solo por precaución.")
@@ -186,28 +202,26 @@ print("Presiona cualquier tecla para ver los resultados.")
 msvcrt.getch()
 os.system("cls")
 time.sleep(1)
-if coronavirus > gripe:
-    if coronavirus > resfriado:
-        print("Los síntomas indican que lo más probable es que tengas el COVID-19.")
-        print("Quédate en casa. No salgas bajo ninguna excepción.")
-        time.sleep(2)
-    elif coronavirus < resfriado:
-        print("Todo parece indicar que tienes un simple resfriado. De todos modos, por precaución,\nquédate en casa a menos que tengas una urgencia o tengas que ir a comprar.")
-    else:
+
+if coronavirus > gripe and coronavirus > resfriado:
+    print("Los síntomas indican que lo más probable es que tengas el COVID-19.")
+    print("Quédate en casa. No salgas bajo ninguna excepción.")
+    time.sleep(2)
+elif coronavirus < resfriado and coronavirus > gripe:
+    print("Todo parece indicar que tienes un simple resfriado. De todos modos, por precaución,\nquédate en casa a menos que tengas una urgencia o tengas que ir a comprar.")
+elif coronavirus == resfriado and gripe < resfriado:
         print("Hay exactamente las mismas probabilidades de que tengas tanto el coronavirus como un resfriado.")
-elif gripe > coronavirus:
-    if gripe > resfriado:
-        print("Todo parece indicar que tienes la gripe. De todos modos, por precaución,\nquédate en casa a menos que tengas una urgencia o tengas que ir a comprar.")
-    elif gripe < resfriado:
-        print("Todo parece indicar que tienes un simple resfriado. De todos modos, por precaución,\nquédate en casa a menos que tengas una urgencia o tengas que ir a comprar.")
-    else:
-        print("Hay exactamente las mismas probabilidades de que tengas tanto un resfriado como la gripe.")
-elif resfriado > gripe:
-    if resfriado > coronavirus:
-        print("Todo parece indicar que tienes un simple resfriado. De todos modos, por precaución,\nquédate en casa a menos que tengas una urgencia o tengas que ir a comprar.")
-    elif resfriado < coronavirus:
-        print("Los síntomas indican que lo más probable es que tengas el COVID-19.")
-        print("Quédate en casa. No salgas bajo ninguna excepción.")
+elif gripe > coronavirus and gripe > resfriado:
+    print("Todo parece indicar que tienes la gripe. De todos modos, por precaución,\nquédate en casa a menos que tengas una urgencia o tengas que ir a comprar.")
+elif gripe > coronavirus and gripe < resfriado:
+    print("Todo parece indicar que tienes un simple resfriado. De todos modos, por precaución,\nquédate en casa a menos que tengas una urgencia o tengas que ir a comprar.")
+elif resfriado == gripe and coronavirus < resfriado:
+     print("Hay exactamente las mismas probabilidades de que tengas tanto un resfriado como la gripe, es poco probable que tengas el COVID-19.")
+elif resfriado > gripe and resfriado > coronavirus:
+    print("Todo parece indicar que tienes un simple resfriado. De todos modos, por precaución,\nquédate en casa a menos que tengas una urgencia o tengas que ir a comprar.")
+elif resfriado > gripe and resfriado < coronavirus:
+    print("Los síntomas indican que lo más probable es que tengas el COVID-19.")
+    print("Quédate en casa. No salgas bajo ninguna excepción.")
 else:
     print("No se ha podido determinar la enfermedad más probable en base a la información dada.")
 time.sleep(2)
