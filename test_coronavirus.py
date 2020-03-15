@@ -128,10 +128,11 @@ if flema == "Y":
         resfriado = resfriado + 1
     else:
         pass
-# creado por Omar
 else:
     pass
 os.system("cls")
+
+# creado por Omar
 
 print("¿Has vomitado o sentido ganas de vomitar?")
 vm = input("Introduce tu respuesta: ")
@@ -224,6 +225,7 @@ elif resfriado > gripe and resfriado < coronavirus:
     print("Quédate en casa. No salgas bajo ninguna excepción.")
 else:
     print("No se ha podido determinar la enfermedad más probable en base a la información dada.")
+
 time.sleep(2)
 print("\nSi crees que tus síntomas son graves o corres peligro, llama de inmediato al 112.")
 time.sleep(3)
